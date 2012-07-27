@@ -6,4 +6,7 @@
 ;; hide toolbar
 (tool-bar-mode -1)
 
+;; set font to Courier New, 9pt
+(set-face-attribute 'default nil :height 90)
+
 (provide 'ui)
