@@ -20,4 +20,22 @@
 (global-set-key [prior] 'my-scroll-down)
 (global-set-key (kbd "M-v") 'my-scroll-down)
 
+
+;; kate-like line wrapping:
+;; done by enabling adaptive-wrap minor mode in all buffers
+;; globalized minor mode is required for this (hooks don't work)
+(defun turn-on-adaptive-wrap-prefix-mode (&optional arg)
+    (interactive)
+    (adaptive-wrap-prefix-mode (or arg 1)))
+(defun turn-off-adaptive-wrap-prefix-mode (&optional arg)
+    (interactive)
+    (adaptive-wrap-prefix-mode (or arg -1)))
+(defun adaptive-wrap-initialize ()
+    (unless (minibufferp)
+            (adaptive-wrap-prefix-mode 1)))
+(define-globalized-minor-mode adaptive-wrap-mode
+    adaptive-wrap-prefix-mode adaptive-wrap-initialize)
+(adaptive-wrap-mode)
+
+
 (provide 'editor)
