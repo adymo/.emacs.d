@@ -32,7 +32,9 @@
     (adaptive-wrap-prefix-mode (or arg -1)))
 (defun adaptive-wrap-initialize ()
     (unless (minibufferp)
-            (adaptive-wrap-prefix-mode 1)))
+        (progn
+            (adaptive-wrap-prefix-mode 1)
+            (setq word-wrap t))))
 (define-globalized-minor-mode adaptive-wrap-mode
     adaptive-wrap-prefix-mode adaptive-wrap-initialize)
 (adaptive-wrap-mode)
