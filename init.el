@@ -11,3 +11,4 @@
 ;; settings
 (require 'ui)
 (require 'editor)
+(require 'ruby)

@@ -2,12 +2,19 @@
 
 (require 'cl)
 (require 'package)
+
+;; additional package repositories
+(add-to-list 'package-archives
+    '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
+
 
 ;; automatically install these packages:
 (defvar my-packages
     '(
         adaptive-wrap ;; kate-like line wrapping with indentation
+        ruby-mode
+        rinari ;; rails navigation and integration
     ))
 
 ;; install new packages and refresh package list only if
